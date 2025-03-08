@@ -1,8 +1,11 @@
 import Logo from '../assets/react.svg'
 import DefaultAvatar from '../assets/no-avatar.svg'
 import { Link } from 'react-router-dom'
+import { useAvatar } from '../hooks/avatarContext'
 
 const Header = () => {
+    const {avatar} = useAvatar();
+
   return (
 <div className="flex justify-between items-center p-4 bg-gray-100">
     <div className="flex items-center">
@@ -21,11 +24,11 @@ const Header = () => {
     </nav>
 
     <div>
-        <img
-            className="rounded-full border-2 border-blue-500 w-20 h-20"
-            src={DefaultAvatar}
-            alt="Avatar-img"
-        />
+        <Link to="/profile">
+        {avatar ? (
+            <img src={avatar} alt="Profile avatar" className="rounded-full border-2 border-blue-500 w-20 h-20"/>
+        ): (<img src={DefaultAvatar} alt="Default profile avatar" className="rounded-full border-2 border-blue-500 w-20 h-20"/>)}
+        </Link>
     </div>
 </div>
   )
