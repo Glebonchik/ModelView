@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { FaPen } from "react-icons/fa";
 import { useAvatar } from "../hooks/avatarContext";
 import DefaultAvatar from '../assets/no-avatar.svg'
